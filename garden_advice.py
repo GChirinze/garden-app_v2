@@ -1,7 +1,6 @@
 # garden_advice.py
 # Provides gardening tips based on the current month (1-12).
 
-# Month-to-tip mapping
 MONTH_TIPS = {
     1: "January: Prune dormant trees and plan your vegetable garden.",
     2: "February: Start seeds indoors for tomatoes and peppers.",
@@ -18,10 +17,20 @@ MONTH_TIPS = {
 }
 
 def get_gardening_tip(month):
-    # TODO: Add docstring
+    """
+    Return a gardening tip for the given month.
+
+    Args:
+        month (int): The month number (1-12).
+
+    Returns:
+        str: The gardening tip for that month, or an error message if the month is invalid.
+    """
     return MONTH_TIPS.get(month, "Invalid month. Please enter a number between 1 and 12.")
 
 if __name__ == "__main__":
-    # TODO: Replace hardcoded month with user input.
-    month = 5
-    print(get_gardening_tip(month))
+    try:
+        month = int(input("Enter month number (1-12): "))
+        print(get_gardening_tip(month))
+    except ValueError:
+        print("Invalid input. Please enter a whole number between 1 and 12.")
